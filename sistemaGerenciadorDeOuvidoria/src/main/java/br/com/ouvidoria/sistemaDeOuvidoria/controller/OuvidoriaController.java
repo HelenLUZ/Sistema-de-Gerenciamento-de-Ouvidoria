@@ -31,8 +31,8 @@ public class OuvidoriaController {
     @PostMapping("/criar")
     public ResponseEntity<String>criarManifestacao(@RequestBody Registro registro){
         try {
-            Integer codigo = ouvidoriaService.criarRegistro(registro);
-            return ResponseEntity.ok().body(codigo.toString());
+            Integer id = ouvidoriaService.criarRegistro(registro);
+            return ResponseEntity.ok().body(id.toString());
         }
         catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
